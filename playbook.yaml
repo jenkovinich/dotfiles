@@ -1,0 +1,5 @@
+- name: basic setup
+  hosts: localhost
+  remote_user: itadmin
+  tasks:
+    - include: packages.yml
