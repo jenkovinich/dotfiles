@@ -6,6 +6,16 @@ Configures tmux and vim.
 
 ```
 git clone git@gitlab.xiphos.ca:jkv/dotfiles.git
-cd dotfiles 
-make install 
+cd dotfiles
 ```
+
+## To Symlink Files
+
+```
+ln -s ~/dotfiles/.vimrc  ~/.vimrc
+ln -s ~/dotfiles/.tmux.conf  ~/.tmux.conf
+```
+
+Note that the tmux configurations won't be updated until all the sessions are closed.
+
+Use `tmux list-sessions` to determine which sessions are open, and use `tmux attach-session -t [SESSION NUMBER]` to go into that session.
