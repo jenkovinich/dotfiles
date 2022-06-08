@@ -5,12 +5,12 @@ let skip_defualts_vim = 1
 " General Settings
 syntax on		" enables syntax highlighting
 set number		" add numbers to each line on the left hand side
-colorscheme peachpuff	" set the color of vim
+colorscheme elflord	" set the color of vim
 set cursorline		" highlight cursor line underneath the cursor horizontally
 set cursorcolumn	" highlight cursor line underneath the cursor vertically
 set mouse=a		" makes the mouse work
 
-set textwidth=70	" no line can be longer than 70 characters
+" set textwidth=70	" no line can be longer than 70 characters
 
 set ignorecase		" ignore capital letters during a search
 set smartcase		" override the ignorecase when searching specifically for capital letters
