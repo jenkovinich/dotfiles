@@ -1,8 +1,43 @@
 " .vimrc file
 
-let skip_defualts_vim = 1   " ignores the defaults.vim file
+" General Settings "
 
-" General Settings
+let skip_defualts_vim = 1       " ignores the defaults.vim file
+
+set mouse=a                     " makes the mouse work
+filetype on                     " enables type file detection
+
+" tab behavior for different file formats
+autocmd FileType robot setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
+autocmd FileType c,cpp setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
+autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 noexpandtab
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+
+set expandtab                   " use space characters instead of tabs
+set wrap			" wrap lines
+" set textwidth=70              " no line can be longer than 70 characters
+
+set ignorecase                  " ignore capital letters during a search
+set smartcase                   " override the ignorecase when searching specifically for capital letters
+set hlsearch                    " use highlighting when doing a search
+set incsearch                   " makes search act like search in modern browsers
+set history=1000                " set the commands to save in history (default is 20)
+
+set wildmenu                    " enable autocompletion after pressing tab
+set wildmode=list:longest       " more like bash completion
+
+set ruler                       " always show current position
+set cmdheight=1                 " height of command bar
+
+" set backspace so it acts like it should
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+set showmatch                   " show matching brackets when text indicator is over them
+set relativenumber		" have relative numbers for the line numbers
+
 " Colour Settings "
 
 syntax enable			" enables syntax highlighting
@@ -13,8 +48,6 @@ colorscheme elflord             " set the color of vim
 "set cursorcolumn               " highlight cursor line underneath the cursor vertically
 ":highlight CursorLine ctermbg=white
 
-set mouse=a		    " makes the mouse work
-filetype on 		" enables type file detection
 " Status Line Settings "
 
 set laststatus=2				" always show the status line
