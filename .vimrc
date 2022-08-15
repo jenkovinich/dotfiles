@@ -13,23 +13,28 @@ set cursorcolumn	" highlight cursor line underneath the cursor vertically
 
 set mouse=a		    " makes the mouse work
 filetype on 		" enables type file detection
+" Status Line Settings "
 
-set shiftwidth=4	" set shift width to 4 spaces
-set tabstop=4		" set tab width to 4 columns
-set expandtab		" use space characters instead of tabs
-" set textwidth=70	" no line can be longer than 70 characters
+set laststatus=2				" always show the status line
 
-set ignorecase		" ignore capital letters during a search
-set smartcase		" override the ignorecase when searching specifically for capital letters
-set hlsearch		" use highlighting when doing a search
-set history=1000	" set the commands to save in history (default is 20)
+" functions to show the git branch that you're on
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
 
-set wildmenu		                " enable autocompletion after pressing tab
-set wildmode=list:longest	        " more like bash completion
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
 
-" statusline
-set statusline=		                        " clear status line when vim is reloaded
-set statusline+=\ %F\ %M\ %Y\ %R	        " status line left side
-set statusline+=%=	                        " use a divider to separate the left side from the right side
-set statusline+=\ row:\ %l\ col:\ %c\ percent:\ %p%%
+" create a colour scheme for the status line
+highlight SLLetters ctermfg=White
 
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %F\ %m
+set statusline+=%=
+set statusline+=Line:\ %l\ \ Column:\ %c\ %p%%
+" set statusline+=%r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c\ %p%%
