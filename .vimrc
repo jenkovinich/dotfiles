@@ -3,12 +3,14 @@
 let skip_defualts_vim = 1   " ignores the defaults.vim file
 
 " General Settings
-syntax on		    " enables syntax highlighting
-set number		    " add numbers to each line on the left hand side
-set t_Co=256        " 256 colours
-colorscheme elflord	" set the color of vim
-set cursorline		" highlight cursor line underneath the cursor horizontally
-set cursorcolumn	" highlight cursor line underneath the cursor vertically
+" Colour Settings "
+
+syntax enable			" enables syntax highlighting
+set number			" add numbers to each line on the left hand side
+set t_Co=256                    " 256 colours
+colorscheme elflord             " set the color of vim
+"set cursorline                 " highlight cursor line underneath the cursor horizontally
+"set cursorcolumn               " highlight cursor line underneath the cursor vertically
 ":highlight CursorLine ctermbg=white
 
 set mouse=a		    " makes the mouse work
