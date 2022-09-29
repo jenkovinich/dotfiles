@@ -45,9 +45,11 @@ set number			" add numbers to each line on the left hand side
 set t_Co=256                    " 256 colours
 colorscheme elflord             " set the color of vim
 set cursorline                  " highlight cursor line underneath the cursor horizontally
-hi CursorLine cterm=none ctermbg=grey ctermfg=black
+"hi CursorLine cterm=none ctermbg=grey ctermfg=black
+hi CursorLine gui=underline cterm=underline
 set cursorcolumn                " highlight cursor line underneath the cursor vertically
-hi CursorColumn cterm=none ctermbg=grey ctermfg=black
+"hi CursorColumn cterm=none ctermbg=grey ctermfg=black
+hi CursorColumn cterm=none ctermbg=red
 
 " Status Line Settings "
 
