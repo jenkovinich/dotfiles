@@ -1,6 +1,6 @@
 # dotfiles
 
-Configures tmux and vim.
+Configures tmux, vim, and bash.
 
 ## Setup
 
