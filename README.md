@@ -50,7 +50,7 @@ Host gitlab.xiphos.com
   IdentityFile ~/.ssh/id_rsa
 ```
 
-Enter `eval \`ssh-agent -s\`` to avoid authentication errors.
+Enter ``eval `ssh-agent -s` `` to avoid authentication errors.
 
 Then delete the cached keys with `ssh-add -D`.
 
