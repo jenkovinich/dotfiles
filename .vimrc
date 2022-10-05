@@ -50,6 +50,7 @@ hi CursorLine gui=underline cterm=underline
 set cursorcolumn                " highlight cursor line underneath the cursor vertically
 "hi CursorColumn cterm=none ctermbg=grey ctermfg=black
 hi CursorColumn cterm=none ctermbg=red
+hi Visual ctermbg=red
 
 " Status Line Settings "
 
