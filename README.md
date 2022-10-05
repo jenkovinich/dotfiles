@@ -2,14 +2,14 @@
 
 Configures tmux, vim, and bash.
 
-## Setup
+## Cloning Repositories 
 
 ```
 git clone git@gitlab.xiphos.ca:jkv/dotfiles.git
 cd dotfiles
 ```
 
-## To Symlink Files
+## Symlink Files
 
 ```
 ln -s ~/dotfiles/.vimrc  ~/.vimrc
@@ -24,9 +24,9 @@ cp ./.bashrc ~/
 
 Note that the tmux configurations won't be updated until all the sessions are closed.
 
-Use `tmux list-sessions` to determine which sessions are open, and use `tmux attach-session -t [SESSION NUMBER]` to go into that session.
+Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION NUMBER/NAME]` to go into that session.
 
-# Add Multiple Git Accounts (GitHub/GitLab)
+## Add Multiple Git Accounts (GitHub/GitLab)
 
 ```
 ssh-keygen -t rsa -C "email address"
@@ -34,15 +34,15 @@ ssh-keygen -t rsa -C "email address"
 
 Copy `cat ~/.ssh/id_rsa.pub` to SSH keys in GitHub/GitLab account.
 
-Create a `config` files in `~/.ssh`.
+Do the previous commands twice for the two different accounts. Make sure to name the `id_rsa` file differently to distinguish the files.
 
-Add into the config:
+Create a `config` file in `~/.ssh`. Add the following into the config file.
 
 ```
 Host github.com
   HostName github.com
   PreferredAuthentications publickey
-  IdentityFile ~/.ssh/id_rsa_name
+  IdentityFile ~/.ssh/id_rsa_github
 
 Host gitlab.xiphos.com
   HostName gitlab.xiphos.com
@@ -50,26 +50,35 @@ Host gitlab.xiphos.com
   IdentityFile ~/.ssh/id_rsa
 ```
 
-Test connections `ssh -T git@gitlab.xiphos.com` and `ssh -T git@github.com`.
+Enter ``eval `ssh-agent -s` `` to avoid authentication errors.
 
-Then delete the cached keys: `ssh-add -D`
+Then delete the cached keys with `ssh-add -D`.
 
-If the error message appears, enter `eval `ssh-agent -s``, and try the previous command again.
-
-Next check if the keys were added: `ssh-add -l`.
+Next check if the keys were added with `ssh-add -l`.
 
 If not, add your keys
 
 ```
-ssh-add ~/.ssh/id_rsa_name
+ssh-add ~/.ssh/id_rsa_github
 ssh-add ~/.ssh/id_rsa
 ```
 
-Set git config user details in your project folder:
+Test connections with `ssh -T git@gitlab.xiphos.com` and `ssh -T git@github.com`.
+
+If all goes well, clone the repo you wish to have.
+
+Set local git config user details in your project folder.
 
 ```
 git config user.name "Jen Kovinich"
 git config user.email "email address"
+```
+
+To set global git config user details, use the following. Note that local user details overrides the global ones.
+
+```
+git config --global user.name "Jen Kovinich"
+git config --global user.email "email address"
 ```
 
 To see your config settings `git config --list`.
