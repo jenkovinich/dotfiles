@@ -82,3 +82,11 @@ git config --global user.email "email address"
 ```
 
 To see your config settings `git config --list`.
+
+## Resources for MacOS
+
+* https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
+* https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
+* https://github.com/nathanbuchar/atom-one-dark-terminal
+* https://www.cyberciti.biz/faq/change-default-shell-to-bash-on-macos-catalina/
+* https://stackoverflow.com/questions/7780030/how-to-fix-terminal-not-loading-bashrc-on-os-x-lion
