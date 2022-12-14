@@ -77,3 +77,5 @@ set statusline+=\ %F\ %m
 set statusline+=%=
 set statusline+=Line:\ %l\ \ Column:\ %c\ %p%%
 " set statusline+=%r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c\ %p%%
+
+autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' |  clip.exe')      " copy to clipboard when using yank
