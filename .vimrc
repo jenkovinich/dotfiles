@@ -36,7 +36,7 @@ set cmdheight=1                 " height of command bar
 "set whichwrap+=<,>,h,l
 
 set showmatch                   " show matching brackets when text indicator is over them
-set relativenumber		" have relative numbers for the line numbers
+" set relativenumber		" have relative numbers for the line numbers
 
 " Colour Settings "
 
