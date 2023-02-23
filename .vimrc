@@ -79,3 +79,10 @@ set statusline+=Line:\ %l\ \ Column:\ %c\ %p%%
 " set statusline+=%r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c\ %p%%
 
 autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' |  clip.exe')      " copy to clipboard when using yank
+
+" Change Leader from \ to ,
+let mapleader = ","
+
+" Support List Chars "
+set listchars=eol:¬,trail:·,tab:▸·
+nmap <leader>lc :set invlist<cr>
