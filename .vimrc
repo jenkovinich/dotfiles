@@ -17,7 +17,7 @@ autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 set expandtab                   " use space characters instead of tabs
 "set wrap			" wrap lines
-" set textwidth=70              " no line can be longer than 70 characters
+set textwidth=80                " no line can be longer than 80 characters
 
 set ignorecase                  " ignore capital letters during a search
 set smartcase                   " override the ignorecase when searching specifically for capital letters
