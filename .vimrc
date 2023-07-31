@@ -9,7 +9,7 @@ filetype on                     " enables type file detection
 
 " tab behavior for different file formats
 autocmd FileType robot setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
-autocmd FileType c,cpp setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
+autocmd FileType c,cpp setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 noexpandtab
@@ -84,5 +84,31 @@ autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents,
 let mapleader = ","
 
 " Support List Chars "
-set listchars=eol:¬,trail:·,tab:▸·
+" set listchars=eol:¬,trail:·,tab:▸·
 nmap <leader>lc :set invlist<cr>
+
+" NERDTree Plugin Mapping
+nnoremap <C-n> :NERDTree<CR>
+
+" lightline Plugin
+" remove --INSERT-- line
+set noshowmode
+" colorscheme and add git branch plugin
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
+
+" use peaksea colorscheme
+if ! has("gui_running")
+    set t_Co=256
+endif
+" colours
+set background=dark
+colors peaksea 
