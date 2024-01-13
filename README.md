@@ -27,6 +27,11 @@ Note that the tmux configurations won't be updated until all the sessions are cl
 Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION NUMBER/NAME]` to go into that session.
 
 
+## AutoHotKeys
+
+This is to allow the remapping of the keys in Windows.
+
+Currently, this is configured for use with the CAPS Lock Key to ESC.
 
 ```
 ```
