@@ -26,12 +26,9 @@ Note that the tmux configurations won't be updated until all the sessions are cl
 
 Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION NUMBER/NAME]` to go into that session.
 
-## MacBook Only
 
-In the .tmux.conf file, include this. Otherwise if you're in Linux or Windows, remove it because it will cause the tmux session to open and close immediately.
 
 ```
-set-option -g default-shell /usr/local/bin/bash
 ```
 
 ## Add Multiple Git Accounts (GitHub/GitLab)
@@ -90,11 +87,3 @@ git config --global user.email "email address"
 ```
 
 To see your config settings `git config --list`.
-
-## Resources for MacOS
-
-* https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
-* https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
-* https://github.com/nathanbuchar/atom-one-dark-terminal
-* https://www.cyberciti.biz/faq/change-default-shell-to-bash-on-macos-catalina/
-* https://stackoverflow.com/questions/7780030/how-to-fix-terminal-not-loading-bashrc-on-os-x-lion
