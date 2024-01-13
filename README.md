@@ -26,6 +26,11 @@ Note that the tmux configurations won't be updated until all the sessions are cl
 
 Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION NUMBER/NAME]` to go into that session.
 
+## Install Plugins
+
+```
+cp -r ./pack/ ~/.vim/
+```
 
 ## AutoHotKeys
 
