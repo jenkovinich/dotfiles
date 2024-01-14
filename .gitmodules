@@ -10,3 +10,6 @@
 [submodule "pack/lightline/start/lightline.vim"]
 	path = pack/lightline/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "pack/vim-gitbranch/start/vim-gitbranch"]
+	path = pack/vim-gitbranch/start/vim-gitbranch
+	url = https://github.com/itchyny/vim-gitbranch.git
