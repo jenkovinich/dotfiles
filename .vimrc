@@ -43,7 +43,6 @@ set showmatch                   " show matching brackets when text indicator is 
 syntax enable			" enables syntax highlighting
 set number			" add numbers to each line on the left hand side
 set t_Co=256                    " 256 colours
-colorscheme elflord             " set the color of vim
 set cursorline                  " highlight cursor line underneath the cursor horizontally
 "hi CursorLine cterm=none ctermbg=grey ctermfg=black
 hi CursorLine gui=underline cterm=underline
@@ -54,17 +53,7 @@ hi Visual ctermbg=red
 
 " Status Line Settings "
 
-set laststatus=2				" always show the status line
-
-" functions to show the git branch that you're on
-"function! GitBranch()
-"  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-"endfunction
-"
-"function! StatuslineGit()
-"  let l:branchname = GitBranch()
-"  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-"endfunction
+set laststatus=2        " always show the status line
 
 " create a colour scheme for the status line
 highlight SLLetters ctermfg=White
@@ -77,8 +66,6 @@ set statusline+=\ %F\ %m
 set statusline+=%=
 set statusline+=Line:\ %l\ \ Column:\ %c\ %p%%
 " set statusline+=%r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c\ %p%%
-
-autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' |  clip.exe')      " copy to clipboard when using yank
 
 " Change Leader from \ to ,
 let mapleader = ","
