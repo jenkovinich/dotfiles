@@ -110,3 +110,13 @@ git config --global user.email "email address"
 ```
 
 To see your config settings `git config --list`.
+
+## Plugins
+
+The follow plugins should be installed.
+* ctrlp
+* lightline
+* nerdtree
+* peaksea
+* vim-gitbranch
+* YouCompleteMe
