@@ -5,7 +5,7 @@ Configures tmux, vim, and bash.
 ## Cloning Repositories 
 
 ```
-git clone --depth 1 https://github.com/jenkovinich/dotfiles.git
+git clone --recursive git@github.com:jenkovinich/dotfiles.git
 cd dotfiles
 ```
 
@@ -33,12 +33,6 @@ NUMBER/NAME]` to go into that session.
 ```
 cp -r ./pack/ ~/.vim/
 ```
-
-## AutoHotKeys
-
-This is to allow the remapping of the keys in Windows.
-
-Currently, this is configured for use with the CAPS Lock Key to ESC.
 
 ## Git Credential Store
 
