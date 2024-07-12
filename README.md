@@ -13,7 +13,6 @@ cd dotfiles
 
 ```
 ln -s ~/dotfiles/.vimrc  ~/.vimrc
-ln -s ~/dotfiles/.tmux.conf  ~/.tmux.conf
 ```
 
 ## Copy Bash File to Standard Location
@@ -33,6 +32,11 @@ NUMBER/NAME]` to go into that session.
 ```
 cp -r ./pack/ ~/.vim/
 ```
+
+## TMUX
+
+For `tmux`, follow the instructions in the `.tmux/README.md` file found in this
+repo.
 
 ## Git Credential Store
 
