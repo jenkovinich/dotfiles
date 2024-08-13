@@ -10,17 +10,9 @@ git clone --recursive https://github.com/jenkovinich/dotfiles.git
 cd dotfiles
 ```
 
-## Symlink Files
+## Install Dotfiles
 
-```
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-```
-
-## Copy Bash File to Standard Location
-
-```
-cp ./.bashrc ~/
-```
+./setup.bash
 
 Note that the tmux configurations won't be updated until all the sessions are
 closed.
@@ -28,19 +20,23 @@ closed.
 Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION
 NUMBER/NAME]` to go into that session.
 
-## Install Plugins
 
-```
-mkdir ~/.vim/
-cp -r ~/dotfiles/pack/ ~/.vim/
-```
+### Vim Plugins
 
-## TMUX
+The follow plugins should be installed.
+* ctrlp
+* lightline
+* nerdtree
+* peaksea
+* vim-gitbranch
+* YouCompleteMe
 
-```
-ln -s -f ~/dotfiles/.tmux/.tmux.conf
-cp ~/dotfiles/.tmux/.tmux.conf.local ~/.
-```
+## Remap Keys
+
+On Windows, download the Microsoft PowerToys from the Microsoft Store and then
+set the CAPS LOCK button to ESC.
+
+Otherwise, you can download the AutoHotKey program to do the same thing.
 
 ## Git Credential Store
 
@@ -113,19 +109,3 @@ git config --global user.email "email address"
 
 To see your config settings `git config --list`.
 
-## Vim Plugins
-
-The follow plugins should be installed.
-* ctrlp
-* lightline
-* nerdtree
-* peaksea
-* vim-gitbranch
-* YouCompleteMe
-
-## Remap Keys
-
-On Windows, download the Microsoft PowerToys from the Microsoft Store and then
-set the CAPS LOCK button to ESC.
-
-Otherwise, you can download the AutoHotKey program to do the same thing.
