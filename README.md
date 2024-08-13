@@ -6,13 +6,14 @@ Configures tmux, vim, and bash.
 
 ```
 git clone --recursive git@github.com:jenkovinich/dotfiles.git
+git clone --recursive https://github.com/jenkovinich/dotfiles.git
 cd dotfiles
 ```
 
 ## Symlink Files
 
 ```
-ln -s ~/dotfiles/.vimrc  ~/.vimrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
 ```
 
 ## Copy Bash File to Standard Location
@@ -30,13 +31,16 @@ NUMBER/NAME]` to go into that session.
 ## Install Plugins
 
 ```
-cp -r ./pack/ ~/.vim/
+mkdir ~/.vim/
+cp -r ~/dotfiles/pack/ ~/.vim/
 ```
 
 ## TMUX
 
-For `tmux`, follow the instructions in the `.tmux/README.md` file found in this
-repo.
+```
+ln -s -f ~/dotfiles/.tmux/.tmux.conf
+cp ~/dotfiles/.tmux/.tmux.conf.local ~/.
+```
 
 ## Git Credential Store
 
@@ -109,7 +113,7 @@ git config --global user.email "email address"
 
 To see your config settings `git config --list`.
 
-## Plugins
+## Vim Plugins
 
 The follow plugins should be installed.
 * ctrlp
@@ -118,3 +122,10 @@ The follow plugins should be installed.
 * peaksea
 * vim-gitbranch
 * YouCompleteMe
+
+## Remap Keys
+
+On Windows, download the Microsoft PowerToys from the Microsoft Store and then
+set the CAPS LOCK button to ESC.
+
+Otherwise, you can download the AutoHotKey program to do the same thing.
