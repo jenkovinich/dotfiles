@@ -12,7 +12,9 @@ cd dotfiles
 
 ## Install Dotfiles
 
+```
 ./setup.bash
+```
 
 Note that the tmux configurations won't be updated until all the sessions are
 closed.
