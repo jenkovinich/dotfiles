@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt install xsel -y
+
 cp ./.bashrc ~/
 ln -s $PWD/.vimrc ~/.vimrc
 mkdir ~/.vim/
