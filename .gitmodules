@@ -13,3 +13,6 @@
 [submodule "pack/vim-gitbranch/start/vim-gitbranch"]
 	path = pack/vim-gitbranch/start/vim-gitbranch
 	url = https://github.com/itchyny/vim-gitbranch.git
+[submodule "pack/YouCompleteMe/start/YouCompleteMe"]
+	path = pack/YouCompleteMe/start/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git

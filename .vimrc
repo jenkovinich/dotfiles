@@ -98,3 +98,4 @@ hi CursorLine cterm=none ctermbg=52 ctermfg=none
 set cursorcolumn                " highlight cursor line underneath the cursor vertically
 hi CursorColumn cterm=none ctermbg=52 ctermfg=none
 
+packadd YouCompleteMe
