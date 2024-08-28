@@ -16,3 +16,6 @@
 [submodule "pack/YouCompleteMe/start/YouCompleteMe"]
 	path = pack/YouCompleteMe/start/YouCompleteMe
 	url = https://github.com/ycm-core/YouCompleteMe.git
+[submodule "pack/robotframework-vim/start/robotframework-vim"]
+	path = pack/robotframework-vim/start/robotframework-vim
+	url = https://github.com/mfukar/robotframework-vim.git
