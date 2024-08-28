@@ -99,3 +99,4 @@ set cursorcolumn                " highlight cursor line underneath the cursor ve
 hi CursorColumn cterm=none ctermbg=52 ctermfg=none
 
 packadd YouCompleteMe
+packloadall

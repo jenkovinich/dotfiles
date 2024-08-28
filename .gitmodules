@@ -19,3 +19,6 @@
 [submodule "pack/robotframework-vim/start/robotframework-vim"]
 	path = pack/robotframework-vim/start/robotframework-vim
 	url = https://github.com/mfukar/robotframework-vim.git
+[submodule "pack/vim-prettier/start/vim-prettier"]
+	path = pack/vim-prettier/start/vim-prettier
+	url = https://github.com/prettier/vim-prettier
