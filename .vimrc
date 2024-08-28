@@ -38,19 +38,6 @@ set whichwrap+=<,>,h,l
 set showmatch                   " show matching brackets when text indicator is over them
 " set relativenumber		" have relative numbers for the line numbers
 
-" Colour Settings "
-
-syntax enable			" enables syntax highlighting
-set number			" add numbers to each line on the left hand side
-set t_Co=256                    " 256 colours
-set cursorline                  " highlight cursor line underneath the cursor horizontally
-"hi CursorLine cterm=none ctermbg=grey ctermfg=black
-hi CursorLine gui=underline cterm=underline
-set cursorcolumn                " highlight cursor line underneath the cursor vertically
-"hi CursorColumn cterm=none ctermbg=grey ctermfg=black
-hi CursorColumn cterm=none ctermbg=red
-hi Visual ctermbg=red
-
 " Status Line Settings "
 
 set laststatus=2        " always show the status line
@@ -71,7 +58,7 @@ set statusline+=Line:\ %l\ \ Column:\ %c\ %p%%
 let mapleader = ","
 
 " Support List Chars "
-" set listchars=eol:¬,trail:·,tab:▸·
+set listchars=eol:¬,trail:·,tab:▸·
 nmap <leader>lc :set invlist<cr>
 
 " NERDTree Plugin Mapping
@@ -80,6 +67,7 @@ nnoremap <C-n> :NERDTree<CR>
 " lightline Plugin
 " remove --INSERT-- line
 set noshowmode
+
 " colorscheme and add git branch plugin
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -99,3 +87,14 @@ endif
 " colours
 set background=dark
 colors peaksea 
+
+" Colour Settings "
+
+syntax enable			" enables syntax highlighting
+set number			" add numbers to each line on the left hand side
+set cursorline                  " highlight cursor line underneath the cursor horizontally
+hi CursorLine cterm=none ctermbg=52 ctermfg=none
+"hi CursorLine gui=underline cterm=underline
+set cursorcolumn                " highlight cursor line underneath the cursor vertically
+hi CursorColumn cterm=none ctermbg=52 ctermfg=none
+
