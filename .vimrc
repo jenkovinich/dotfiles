@@ -100,3 +100,4 @@ hi CursorColumn cterm=none ctermbg=52 ctermfg=none
 
 packadd YouCompleteMe
 packloadall
+let NERDTreeShowHidden=1
