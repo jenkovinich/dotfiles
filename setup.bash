@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sudo apt install xsel -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt install xsel tig -y
 sudo apt install build-essential cmake vim-nox python3-dev -y
 sudo apt install mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm -y
 
