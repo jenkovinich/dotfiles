@@ -8,7 +8,7 @@ set mouse=a                     " makes the mouse work
 filetype on                     " enables type file detection
 
 " tab behavior for different file formats
-autocmd FileType robot setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
+autocmd FileType robot,makefile setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
 autocmd FileType c,cpp setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
@@ -80,23 +80,16 @@ let g:lightline = {
       \ },
       \ }
 
-" use peaksea colorscheme
-if ! has("gui_running")
-    set t_Co=256
-endif
-" colours
+set t_Co=256
 set background=dark
-colors peaksea 
+colorscheme PaperColor
 
 " Colour Settings "
 
 syntax enable			" enables syntax highlighting
 set number			" add numbers to each line on the left hand side
 set cursorline                  " highlight cursor line underneath the cursor horizontally
-hi CursorLine cterm=none ctermbg=52 ctermfg=none
-"hi CursorLine gui=underline cterm=underline
 set cursorcolumn                " highlight cursor line underneath the cursor vertically
-hi CursorColumn cterm=none ctermbg=52 ctermfg=none
 
 packadd YouCompleteMe
 packloadall

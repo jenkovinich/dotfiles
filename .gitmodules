@@ -22,3 +22,12 @@
 [submodule "pack/vim-prettier/start/vim-prettier"]
 	path = pack/vim-prettier/start/vim-prettier
 	url = https://github.com/prettier/vim-prettier
+[submodule "pack/papercolor-theme/start/papercolor-theme"]
+	path = pack/papercolor-theme/start/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme.git
+[submodule "pack/python-syntax/start/python-syntax"]
+	path = pack/python-syntax/start/python-syntax
+	url = https://github.com/vim-python/python-syntax.git
+[submodule "pack/taglist.vim/start/taglist.vim"]
+	path = pack/taglist.vim/start/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
