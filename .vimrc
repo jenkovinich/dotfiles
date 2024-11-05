@@ -1,11 +1,14 @@
 " .vimrc file
 
-" General Settings "
+" GENERAL SETTINGS "
 
 let skip_defualts_vim = 1       " ignores the defaults.vim file
 
 set mouse=a                     " makes the mouse work
+set ttymouse=xterm2             " mouse can resize windows
+set clipboard=unnamedplus       " set clipboard has default for yank and paste
 filetype on                     " enables type file detection
+syntax enable			" enables syntax highlighting
 
 " tab behavior for different file formats
 autocmd FileType robot,makefile setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
@@ -16,8 +19,8 @@ autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 noexpandtab
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 set expandtab                   " use space characters instead of tabs
-"set wrap			" wrap lines
 set textwidth=80                " no line can be longer than 80 characters
+"set wrap			" wrap lines
 
 set ignorecase                  " ignore capital letters during a search
 set smartcase                   " override the ignorecase when searching specifically for capital letters
@@ -36,7 +39,11 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 set showmatch                   " show matching brackets when text indicator is over them
+set number			" add numbers to each line on the left hand side
 " set relativenumber		" have relative numbers for the line numbers
+
+set cursorline                  " highlight cursor line underneath the cursor horizontally
+set cursorcolumn                " highlight cursor line underneath the cursor vertically
 
 " Status Line Settings "
 
@@ -61,8 +68,11 @@ let mapleader = ","
 set listchars=eol:¬,trail:·,tab:▸·
 nmap <leader>lc :set invlist<cr>
 
+" PLUGIN SETTINGS "
+
 " NERDTree Plugin Mapping
 nnoremap <C-n> :NERDTree<CR>
+let NERDTreeShowHidden=1        " show hidden files
 
 " lightline Plugin
 " remove --INSERT-- line
@@ -70,7 +80,7 @@ set noshowmode
 
 " colorscheme and add git branch plugin
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -80,17 +90,11 @@ let g:lightline = {
       \ },
       \ }
 
+" PaperColor colorscheme
 set t_Co=256
 set background=dark
 colorscheme PaperColor
 
-" Colour Settings "
-
-syntax enable			" enables syntax highlighting
-set number			" add numbers to each line on the left hand side
-set cursorline                  " highlight cursor line underneath the cursor horizontally
-set cursorcolumn                " highlight cursor line underneath the cursor vertically
-
+" YouCompleteMe Plugin
 packadd YouCompleteMe
 packloadall
-let NERDTreeShowHidden=1

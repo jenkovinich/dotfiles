@@ -5,6 +5,9 @@
 #sudo apt upgrade -y
 #sudo apt install xsel tig git curl -y
 
+# needed for clipboard support
+#sudo apt install vim-gtk3
+
 ## Needed for taglist.vim
 #sudo apt install exuberant-ctags
 
@@ -30,4 +33,5 @@ pushd ~/.vim/pack/YouCompleteMe/start/YouCompleteMe
 python3 install.py --clangd-completer --ts-completer --rust-completer --java-completer
 popd
 
+## DONE
 echo All Configured
