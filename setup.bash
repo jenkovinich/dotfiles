@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## General Installs
+#git submodule update --init --recursive
 #sudo apt update
 #sudo apt upgrade -y
 #sudo apt install xsel tig git curl -y
@@ -16,7 +17,7 @@
 #sudo apt install nodejs openjdk-17-jdk openjdk-17-jre npm -y
 
 ## BASH
-cp ./.bashrc ~/
+ln -s -f $PWD/.bashrc ~/.bashrc
 
 ## VIM
 sudo rm -rf ~/.vim/
