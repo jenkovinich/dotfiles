@@ -7,10 +7,13 @@
 #sudo apt install xsel tig git curl -y
 
 # needed for clipboard support
-#sudo apt install vim-gtk3
+#sudo apt install vim-gtk3 -y
 
 ## Needed for taglist.vim
-#sudo apt install exuberant-ctags
+#sudo apt install exuberant-ctags -y
+
+## Needed for vim-lsp
+#curl -LsSf https://astral.sh/ruff/install.sh | sh
 
 ## Needed for YouCompleteMe
 #sudo apt install build-essential cmake vim-nox python3-dev -y

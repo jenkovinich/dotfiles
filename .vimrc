@@ -2,6 +2,10 @@
 
 " GENERAL SETTINGS "
 
+let g:polyglot_disabled = ['markdown']
+let g:polyglot_disabled = ['csv']
+let g:polyglot_disabled = ['autoindent']
+autocmd BufEnter * set indentexpr=
 let skip_defualts_vim = 1       " ignores the defaults.vim file
 
 set mouse=a                     " makes the mouse work
@@ -10,17 +14,18 @@ set clipboard=unnamedplus       " set clipboard has default for yank and paste
 filetype on                     " enables type file detection
 syntax enable			" enables syntax highlighting
 
+set expandtab                   " use space characters instead of tabs
+set textwidth=80                " no line can be longer than 80 characters
+"set wrap			" wrap lines
+
 " tab behavior for different file formats
-autocmd FileType robot,makefile setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
+autocmd FileType robot setlocal shiftwidth=8 softtabstop=8 tabstop=8 noexpandtab
+autocmd FileType make setlocal shiftwidth=4 softtabstop=4 tabstop=4 noexpandtab
 autocmd FileType c,cpp setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 noexpandtab
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
-
-set expandtab                   " use space characters instead of tabs
-set textwidth=80                " no line can be longer than 80 characters
-"set wrap			" wrap lines
 
 set ignorecase                  " ignore capital letters during a search
 set smartcase                   " override the ignorecase when searching specifically for capital letters
@@ -98,3 +103,13 @@ colorscheme PaperColor
 " YouCompleteMe Plugin
 packadd YouCompleteMe
 packloadall
+
+" vim-lsp Plugin
+if executable('ruff')
+    au User lsp_setup call lsp#register_server({
+            \ 'name': 'ruff',
+            \ 'cmd': {server_info->['ruff', 'server']},
+            \ 'allowlist': ['python'],
+            \ 'workspace_config': {},
+            \ })
+endif
