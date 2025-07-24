@@ -9,6 +9,13 @@
 ## Needed for Clipboard Support
 #sudo apt install vim-gtk3 -y
 
+## Needed for vim-prettier
+#sudo apt install nodejs npm -y
+#sudo npm install n -g
+#sudo n stable
+#hash -r
+#sudo npm install -g prettier
+
 ## Needed for taglist.vim
 #sudo apt install exuberant-ctags -y
 
