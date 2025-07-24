@@ -22,21 +22,6 @@ closed.
 Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION
 NUMBER/NAME]` to go into that session.
 
-### YouCompleteMe
-
-In case this doesn't work for some reason like one of the packages failing,
-then navigate to the
-`~/.vim/pack/YouCompleteMe/start/YouCompleteMe`
-directory and then run the following instead of `./install.py --all`
-
-```
-./install.py --cs-completer
-./install.py --go-completer
-./install.py --ts-completer
-./install.py --rust-completer
-./install.py --java-completer
-```
-
 ### Vim Plugins
 
 The follow plugins should be installed.
@@ -45,7 +30,6 @@ The follow plugins should be installed.
 * nerdtree
 * peaksea
 * vim-gitbranch
-* YouCompleteMe
 * robotframework-vim
 * vim-prettier
 
