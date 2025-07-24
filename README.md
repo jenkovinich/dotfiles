@@ -28,7 +28,6 @@ The follow plugins should be installed.
 * ctrlp
 * lightline
 * nerdtree
-* peaksea
 * vim-gitbranch
 * robotframework-vim
 * vim-prettier

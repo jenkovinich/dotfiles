@@ -4,9 +4,6 @@
 [submodule "pack/nerdtree/start/nerdtree"]
 	path = pack/nerdtree/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
-[submodule "pack/peaksea/start/peaksea"]
-	path = pack/peaksea/start/peaksea
-	url = https://github.com/vim-scripts/peaksea.git
 [submodule "pack/lightline/start/lightline.vim"]
 	path = pack/lightline/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
