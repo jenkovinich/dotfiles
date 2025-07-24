@@ -75,11 +75,10 @@ nmap <leader>lc :set invlist<cr>
 nnoremap <leader>n :NERDTree<CR>
 let NERDTreeShowHidden=1        " show hidden files
 
-" lightline Plugin
-" remove --INSERT-- line
-set noshowmode
+" lightline
+set noshowmode  " remove --INSERT-- line
 
-" colorscheme and add git branch plugin
+" lightline and gitbranch
 let g:lightline = {
       \ 'colorscheme': 'PaperColor',
       \ 'active': {
@@ -91,7 +90,7 @@ let g:lightline = {
       \ },
       \ }
 
-" PaperColor colorscheme
+" papercolor
 set t_Co=256
 set background=dark
 colorscheme PaperColor
@@ -99,5 +98,6 @@ colorscheme PaperColor
 " taglist
 nnoremap <leader>t :TlistOpen<CR>
 
+" vim-prettier
 packloadall
 

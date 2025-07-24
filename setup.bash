@@ -4,9 +4,9 @@
 #git submodule update --init --recursive
 #sudo apt update
 #sudo apt upgrade -y
-#sudo apt install xsel tig git curl -y
+#sudo apt install git tig curl xsel -y
 
-# needed for clipboard support
+## Needed for Clipboard Support
 #sudo apt install vim-gtk3 -y
 
 ## Needed for taglist.vim

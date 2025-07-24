@@ -2,7 +2,7 @@
 
 Configures tmux, vim, and bash.
 
-## Cloning Repositories 
+## Cloning Repositories
 
 ```
 git clone --recursive git@github.com:jenkovinich/dotfiles.git
@@ -25,12 +25,16 @@ NUMBER/NAME]` to go into that session.
 ### Vim Plugins
 
 The follow plugins should be installed.
-* ctrlp
-* lightline
-* nerdtree
-* vim-gitbranch
-* robotframework-vim
-* vim-prettier
+
+- [ctrlp](https://github.com/ctrlpvim/ctrlp.vim): full path fuzzy file finder
+- [lightline](https://github.com/itchyny/lightline.vim): nicer looking status bar
+- [nerdtree](https://github.com/preservim/nerdtree): show file structure in a tree beside a page
+- [papercolor-theme](https://github.com/NLKNguyen/papercolor-theme): pretty color theme
+- [python-syntax](https://github.com/vim-python/python-syntax): python syntax highlighting
+- [robotframework-vim](https://github.com/mfukar/robotframework-vim): robot syntax highlighting and filetype recognition
+- [taglist.vim](https://github.com/yegappan/taglist): show overview of structure of code files
+- [vim-gitbranch](https://github.com/itchyny/vim-gitbranch): show the git branch in lightline status bar
+- [vim-prettier](https://github.com/prettier/vim-prettier): auto formatter for js, ts, css, json, markdown
 
 ## Remap Keys
 
@@ -109,4 +113,3 @@ git config --global user.email "email address"
 ```
 
 To see your config settings `git config --list`.
-
