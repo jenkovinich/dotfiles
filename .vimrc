@@ -2,10 +2,6 @@
 
 " GENERAL SETTINGS "
 
-let g:polyglot_disabled = ['markdown']
-let g:polyglot_disabled = ['csv']
-let g:polyglot_disabled = ['autoindent']
-autocmd BufEnter * set indentexpr=
 let skip_defualts_vim = 1       " ignores the defaults.vim file
 
 set mouse=a                     " makes the mouse work
@@ -102,12 +98,3 @@ colorscheme PaperColor
 
 packloadall
 
-" vim-lsp Plugin
-if executable('ruff')
-    au User lsp_setup call lsp#register_server({
-            \ 'name': 'ruff',
-            \ 'cmd': {server_info->['ruff', 'server']},
-            \ 'allowlist': ['python'],
-            \ 'workspace_config': {},
-            \ })
-endif

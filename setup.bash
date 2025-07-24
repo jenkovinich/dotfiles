@@ -12,9 +12,6 @@
 ## Needed for taglist.vim
 #sudo apt install exuberant-ctags -y
 
-## Needed for vim-lsp
-#curl -LsSf https://astral.sh/ruff/install.sh | sh
-
 ## BASH
 ln -s -f $PWD/.bashrc ~/.bashrc
 
