@@ -71,8 +71,8 @@ nmap <leader>lc :set invlist<cr>
 
 " PLUGIN SETTINGS "
 
-" NERDTree Plugin Mapping
-nnoremap <C-n> :NERDTree<CR>
+" NERDTree
+nnoremap <leader>n :NERDTree<CR>
 let NERDTreeShowHidden=1        " show hidden files
 
 " lightline Plugin
