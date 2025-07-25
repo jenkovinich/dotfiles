@@ -25,3 +25,6 @@
 [submodule "pack/taglist.vim/start/taglist.vim"]
 	path = pack/taglist.vim/start/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "pack/vim-gitgutter"]
+	path = pack/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git

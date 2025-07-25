@@ -101,3 +101,5 @@ nnoremap <leader>t :TlistOpen<CR>
 " vim-prettier
 packloadall
 
+" vim-gitgutter
+set updatetime=100
