@@ -35,6 +35,7 @@ The follow plugins should be installed.
 - [taglist.vim](https://github.com/yegappan/taglist): show overview of structure of code files
 - [vim-gitbranch](https://github.com/itchyny/vim-gitbranch): show the git branch in lightline status bar
 - [vim-prettier](https://github.com/prettier/vim-prettier): auto formatter for js, ts, css, json, markdown
+- [vim-commentary](git clone https://tpope.io/vim/commentary.git): allows simpler code commenting
 
 ## Remap Keys
 
