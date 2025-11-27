@@ -36,7 +36,7 @@ The follow plugins should be installed.
 - [vim-gitbranch](https://github.com/itchyny/vim-gitbranch): show the git branch in lightline status bar
 - [vim-prettier](https://github.com/prettier/vim-prettier): auto formatter for js, ts, css, json, markdown
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter): shows the git changes in the column
-- [vim-commentary](git clone https://tpope.io/vim/commentary.git): allows simpler code commenting
+- [vim-commentary](https://tpope.io/vim/commentary.git): allows simpler code commenting
 
 ## Remap Keys
 
