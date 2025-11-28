@@ -398,6 +398,7 @@ set -g mouse on
 # move status line to top
 #set -g status-position top
 
+run-shell ~/.vim/pack/tmux-resurrect/resurrect.tmux
 
 # -- tpm -----------------------------------------------------------------------
 

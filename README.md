@@ -38,6 +38,10 @@ The follow plugins should be installed.
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter): shows the git changes in the column
 - [vim-commentary](https://tpope.io/vim/commentary.git): allows simpler code commenting
 
+### TMUX Plugins
+
+- [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect.git): resurrects tmux sessions
+
 ## Remap Keys
 
 On Windows, download the Microsoft PowerToys from the Microsoft Store and then
