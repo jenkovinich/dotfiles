@@ -398,6 +398,8 @@ set -g mouse on
 # move status line to top
 #set -g status-position top
 
+set -g @resurrect-capture-pane-contents 'on'
+
 run-shell ~/.vim/pack/tmux-resurrect/resurrect.tmux
 
 # -- tpm -----------------------------------------------------------------------
