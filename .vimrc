@@ -103,3 +103,6 @@ packloadall
 
 " vim-gitgutter
 set updatetime=100
+
+" vim-commentary
+autocmd FileType python setlocal commentstring=#\ %s
