@@ -106,3 +106,4 @@ set updatetime=100
 
 " vim-commentary
 autocmd FileType python setlocal commentstring=#\ %s
+autocmd FileType yaml setlocal commentstring=#\ %s
