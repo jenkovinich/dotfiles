@@ -4,10 +4,7 @@
 #git submodule update --init --recursive
 #sudo apt update
 #sudo apt upgrade -y
-#sudo apt install git tig curl xsel -y
-
-## Needed for Clipboard Support
-#sudo apt install vim-gtk3 -y
+#sudo apt install git tig curl -y
 
 ## Needed for vim-prettier
 #sudo apt install nodejs npm -y
