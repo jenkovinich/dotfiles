@@ -4,7 +4,7 @@
 #git submodule update --init --recursive
 #sudo apt update
 #sudo apt upgrade -y
-#sudo apt install git tig curl -y
+#sudo apt install git tig tree curl -y
 
 ## Needed for vim-prettier
 #sudo apt install nodejs npm -y
