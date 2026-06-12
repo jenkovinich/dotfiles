@@ -2,7 +2,7 @@
 
 " GENERAL SETTINGS "
 
-let skip_defualts_vim = 1       " ignores the defaults.vim file
+let skip_defaults_vim = 1       " ignores the defaults.vim file
 
 set mouse=a                     " makes the mouse work
 set ttymouse=xterm2             " mouse can resize windows
