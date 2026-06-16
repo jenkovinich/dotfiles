@@ -15,11 +15,28 @@ cd dotfiles
 ./setup.bash
 ```
 
+Optional shell tool installs:
+
+```
+./setup.bash --install-bash-completion
+```
+
 Note that the tmux configurations won't be updated until all the sessions are
 closed.
 
 Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION
 NUMBER/NAME]` to go into that session.
+
+### Bash
+
+The Bash config lives in `.bashrc`, and Readline settings live in `.inputrc`.
+
+It provides:
+
+- larger synchronized history across terminals
+- prefix history search with Up and Down
+- tab-cycled completion through Readline
+- bash-completion integration when the package is installed
 
 ### Vim
 
