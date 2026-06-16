@@ -34,3 +34,6 @@
 [submodule "pack/tmux-resurrect"]
 	path = pack/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule "pack/tmux-continuum"]
+	path = pack/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git

@@ -399,8 +399,10 @@ set -g mouse on
 #set -g status-position top
 
 set -g @resurrect-capture-pane-contents 'on'
+set -g @continuum-restore 'on'
 
 run-shell ~/.vim/pack/tmux-resurrect/resurrect.tmux
+run-shell ~/.vim/pack/tmux-continuum/continuum.tmux
 
 # -- tpm -----------------------------------------------------------------------
 
@@ -441,7 +443,6 @@ tmux_conf_uninstall_plugins_on_reload=true
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 #set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
-#set -g @continuum-restore 'on'
 
 
 # -- custom variables ----------------------------------------------------------

@@ -99,6 +99,7 @@ The following plugins should be installed.
 ### TMUX Plugins
 
 - [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect.git): resurrects tmux sessions
+- [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum.git): continuously saves tmux sessions and restores them when a new tmux server starts
 
 ## Remap Keys
 
