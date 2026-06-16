@@ -40,7 +40,10 @@ It provides:
 - quickfix-based file listing through `:ProjectFiles`
 - ripgrep search through `:ProjectGrep` when `rg` is installed
 - built-in diagnostics
-- automatic LSP startup when a matching language server executable is available
+- Mason-managed LSP servers for Python, Markdown, and Robot Framework
+- Obsidian-style Markdown support through markdown-oxide
+- Treesitter parser management and highlighting through nvim-treesitter
+- Snacks.nvim utilities for fuzzy finding, large files, quick file loading, input, and notifications
 - lazy.nvim plugin management with specs under `.config/nvim/lua/plugins`
 
 The setup script links:
@@ -53,19 +56,29 @@ If an existing target path is a real directory or file, the setup script skips i
 rather than overwriting it. Move the existing path aside if you want dotfiles to
 own it.
 
-Optional language servers:
+Mason-managed language servers:
 
-- Python: `pyright-langserver` or `pylsp`
-- C/C++: `clangd`
-- Bash: `bash-language-server`
-- Lua: `lua-language-server`
-- YAML: `yaml-language-server`
-- JSON: `vscode-json-language-server`
-- Markdown: `marksman`
-- Robot Framework: `robotframework_ls`
+- Python: `basedpyright` and `ruff`
+- Markdown: `markdown_oxide`
+- Robot Framework: `robotcode`
 
-Future Neovim improvements may include modern plugins such as a fuzzy finder,
-statusline, git signs, and Treesitter.
+Neovim plugins:
+
+- `lazy.nvim`
+- `mason.nvim`
+- `mason-lspconfig.nvim`
+- `nvim-lspconfig`
+- `nvim-treesitter`
+- `snacks.nvim`
+
+Treesitter parser installation requires the `tree-sitter` CLI on `PATH`. If it
+is missing, the plugin still installs but parser installation is skipped.
+
+Neovim uses `,` as its leader key. Current custom Neovim key bindings:
+
+- `<C-p>` opens the Snacks smart picker for fuzzy file finding
+
+Future Neovim improvements may include a statusline and git signs.
 
 ### Vim And Neovim Plugins
 

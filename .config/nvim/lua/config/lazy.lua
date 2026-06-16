@@ -38,3 +38,11 @@ require("lazy").setup({
     notify = false,
   },
 })
+
+local nvim_path = vim.fn.exepath(vim.v.progpath)
+local nvim_prefix = vim.fn.fnamemodify(nvim_path ~= "" and nvim_path or vim.v.progpath, ":h:h")
+local parser_runtime = nvim_prefix .. "/lib/nvim"
+if vim.fn.isdirectory(parser_runtime) == 1 then
+  -- Official Linux packages keep bundled Treesitter parsers outside the runtime tree.
+  vim.opt.runtimepath:append(parser_runtime)
+end

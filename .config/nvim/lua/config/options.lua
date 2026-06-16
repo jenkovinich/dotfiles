@@ -1,5 +1,8 @@
 local opt = vim.opt
 
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+
 opt.mouse = "a"
 opt.clipboard = "unnamedplus"
 opt.expandtab = true
