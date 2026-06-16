@@ -3,15 +3,19 @@
 set -euo pipefail
 
 repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+install_bash_completion=false
 install_neovim=false
 
 for arg in "$@"; do
     case "$arg" in
+        --install-bash-completion)
+            install_bash_completion=true
+            ;;
         --install-neovim)
             install_neovim=true
             ;;
         -h|--help)
-            echo "Usage: $0 [--install-neovim]"
+            echo "Usage: $0 [--install-bash-completion] [--install-neovim]"
             exit 0
             ;;
         *)
@@ -31,6 +35,16 @@ link_path() {
     fi
 
     ln -sfnT "$source_path" "$target_path"
+}
+
+install_bash_completion_package() {
+    if ! command -v apt-get > /dev/null 2>&1; then
+        echo "apt-get is required to install bash-completion" >&2
+        return 1
+    fi
+
+    sudo apt-get update
+    sudo apt-get install bash-completion -y
 }
 
 install_neovim_from_tarball() {
@@ -63,7 +77,11 @@ install_neovim_from_tarball() {
 #git submodule update --init --recursive
 #sudo apt update
 #sudo apt upgrade -y
-#sudo apt install git tig tree curl ripgrep -y
+#sudo apt install git tig tree curl ripgrep bash-completion -y
+
+if [ "$install_bash_completion" = true ]; then
+    install_bash_completion_package
+fi
 
 if [ "$install_neovim" = true ]; then
     install_neovim_from_tarball
@@ -81,6 +99,7 @@ fi
 
 ## BASH
 link_path "$repo_dir/.bashrc" "$HOME/.bashrc"
+link_path "$repo_dir/.inputrc" "$HOME/.inputrc"
 
 ## VIM
 link_path "$repo_dir/.vimrc" "$HOME/.vimrc"
