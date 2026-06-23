@@ -21,15 +21,14 @@ cd dotfiles
 ## Install Dotfiles
 
 ```
-./setup.bash
+./install/setup.bash
 ```
 
-The root `setup.bash` is a compatibility wrapper around `install/setup.bash`.
-
-Optional shell tool installs:
+Optional installs:
 
 ```
-./setup.bash --install-bash-completion
+./install/setup.bash --install      # install git, tig, tree, bash-completion, python-is-python3, and Neovim
+./install/setup.bash --install-vim  # link classic Vim and install Vim-only dependencies
 ```
 
 Health check:
@@ -60,6 +59,8 @@ It provides:
 ### Vim
 
 The classic Vim config lives in `home/.vimrc` and remains available as a fallback.
+It is not linked by default; run `./install/setup.bash --install-vim` if you want setup
+to manage `~/.vimrc`, `~/.vim/pack`, and the Vim-only plugin dependencies.
 
 ### Neovim
 
@@ -83,16 +84,20 @@ It provides:
 - Snacks.nvim utilities for fuzzy finding, large files, quick file loading, input, and notifications
 - lazy.nvim plugin management with specs under `config/nvim/lua/plugins`
 
-The setup script links:
+The setup script links by default:
 
 - `home/.bash_profile` to `~/.bash_profile`
 - `home/.bashrc` to `~/.bashrc`
 - `home/.inputrc` to `~/.inputrc`
-- `home/.vimrc` to `~/.vimrc`
 - `config/nvim` to `~/.config/nvim`
-- `vim/pack` to `~/.vim/pack`
 - `tmux/oh-my-tmux/.tmux.conf` to `~/.tmux.conf`
 - `tmux/.tmux.conf.local` to `~/.tmux.conf.local`
+
+Classic Vim is kept as an optional fallback. Run `./install/setup.bash --install-vim`
+if you want setup to link:
+
+- `home/.vimrc` to `~/.vimrc`
+- `vim/pack` to `~/.vim/pack`
 
 If an existing target path is a real directory or file, the setup script skips it
 rather than overwriting it. Move the existing path aside if you want dotfiles to

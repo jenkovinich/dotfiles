@@ -69,7 +69,7 @@ check_command() {
 check_link "home/.bash_profile" "$HOME/.bash_profile"
 check_link "home/.bashrc" "$HOME/.bashrc"
 check_link "home/.inputrc" "$HOME/.inputrc"
-check_link "home/.vimrc" "$HOME/.vimrc"
+check_link "home/.vimrc" "$HOME/.vimrc" optional
 check_link "vim/pack" "$HOME/.vim/pack" optional
 check_link "config/nvim" "$HOME/.config/nvim"
 check_link "tmux/oh-my-tmux/.tmux.conf" "$HOME/.tmux.conf"

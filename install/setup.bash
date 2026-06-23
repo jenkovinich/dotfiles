@@ -3,19 +3,21 @@
 set -euo pipefail
 
 repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-install_bash_completion=false
-install_neovim=false
+install_setup_tools_requested=false
+install_classic_vim=false
 
 for arg in "$@"; do
     case "$arg" in
-        --install-bash-completion)
-            install_bash_completion=true
+        --install)
+            install_setup_tools_requested=true
             ;;
-        --install-neovim)
-            install_neovim=true
+        --install-vim)
+            install_classic_vim=true
             ;;
         -h|--help)
-            echo "Usage: $0 [--install-bash-completion] [--install-neovim]"
+            echo "Usage: $0 [--install] [--install-vim]"
+            echo "  --install      Install git, tig, tree, bash-completion, python-is-python3, and Neovim."
+            echo "  --install-vim  Link classic Vim config and install Vim-only dependencies."
             exit 0
             ;;
         *)
@@ -37,14 +39,31 @@ link_path() {
     ln -sfnT "$source_path" "$target_path"
 }
 
-install_bash_completion_package() {
+require_apt_get() {
     if ! command -v apt-get > /dev/null 2>&1; then
-        echo "apt-get is required to install bash-completion" >&2
+        echo "apt-get is required for this install option" >&2
         return 1
     fi
+}
 
+install_setup_tools() {
+    require_apt_get
     sudo apt-get update
-    sudo apt-get install bash-completion -y
+    sudo apt-get install git tig tree bash-completion curl python-is-python3 -y
+    install_neovim_from_tarball
+}
+
+install_classic_vim_support() {
+    require_apt_get
+    sudo apt-get update
+    sudo apt-get install vim nodejs npm -y
+    if ! sudo apt-get install exuberant-ctags -y; then
+        sudo apt-get install universal-ctags -y
+    fi
+
+    if ! command -v prettier > /dev/null 2>&1; then
+        sudo npm install -g prettier
+    fi
 }
 
 install_neovim_from_tarball() {
@@ -73,43 +92,29 @@ install_neovim_from_tarball() {
     "$install_dir/bin/nvim" --version | sed -n '1p'
 }
 
-## General Installs
-#git submodule update --init --recursive
-#sudo apt update
-#sudo apt upgrade -y
-#sudo apt install git tig tree curl ripgrep bash-completion -y
-
-if [ "$install_bash_completion" = true ]; then
-    install_bash_completion_package
+if [ "$install_setup_tools_requested" = true ]; then
+    install_setup_tools
 fi
 
-if [ "$install_neovim" = true ]; then
-    install_neovim_from_tarball
+if [ "$install_classic_vim" = true ]; then
+    install_classic_vim_support
 fi
-
-## Needed for vim-prettier
-#sudo apt install nodejs npm -y
-#sudo npm install n -g
-#sudo n stable
-#hash -r
-#sudo npm install -g prettier
-
-## Needed for taglist.vim
-#sudo apt install exuberant-ctags -y
 
 ## BASH
 link_path "$repo_dir/home/.bash_profile" "$HOME/.bash_profile"
 link_path "$repo_dir/home/.bashrc" "$HOME/.bashrc"
 link_path "$repo_dir/home/.inputrc" "$HOME/.inputrc"
 
-## VIM
-link_path "$repo_dir/home/.vimrc" "$HOME/.vimrc"
-mkdir -p "$HOME/.vim"
-link_path "$repo_dir/vim/pack" "$HOME/.vim/pack"
-
 ## NEOVIM
 mkdir -p "$HOME/.config"
 link_path "$repo_dir/config/nvim" "$HOME/.config/nvim"
+
+## CLASSIC VIM (optional fallback)
+if [ "$install_classic_vim" = true ]; then
+    link_path "$repo_dir/home/.vimrc" "$HOME/.vimrc"
+    mkdir -p "$HOME/.vim"
+    link_path "$repo_dir/vim/pack" "$HOME/.vim/pack"
+fi
 
 ## TMUX
 link_path "$repo_dir/tmux/oh-my-tmux/.tmux.conf" "$HOME/.tmux.conf"
