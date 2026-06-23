@@ -57,15 +57,6 @@ if vim.fn.executable("rg") == 1 then
   opt.grepformat = "%f:%l:%c:%m"
 end
 
-opt.statusline = table.concat({
-  " %f",
-  " %m%r",
-  "%=",
-  " %{&filetype}",
-  " %l:%c",
-  " %p%% ",
-})
-
 pcall(vim.cmd.colorscheme, "habamax")
 
 vim.cmd("filetype plugin indent on")
