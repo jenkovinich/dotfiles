@@ -375,7 +375,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # this is the place to override or undo settings
 
 # increase history size
-set -g history-limit 10000
+set -g history-limit 50000
 
 # start with mouse mode enabled
 set -g mouse on
@@ -383,7 +383,7 @@ set -g mouse on
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi
-#set -g mode-keys vi
+set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
@@ -401,6 +401,7 @@ set -g mouse on
 set -g @resurrect-capture-pane-contents 'on'
 set -g @continuum-restore 'on'
 
+# tmux plugins are vendored under pack/ with the legacy Vim plugins.
 run-shell ~/.vim/pack/tmux-resurrect/resurrect.tmux
 run-shell ~/.vim/pack/tmux-continuum/continuum.tmux
 
