@@ -21,13 +21,13 @@ tmux_conf_preserve_stock_bindings=false
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_prompt=true
+tmux_conf_new_session_prompt=disabled
 
 # new session retains current path, possible values are:
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_retain_current_path=true
+tmux_conf_new_session_retain_current_path=disabled
 
 
 # -- windows & pane creation ---------------------------------------------------
@@ -401,9 +401,11 @@ set -g mode-keys vi
 set -g @resurrect-capture-pane-contents 'on'
 set -g @continuum-restore 'on'
 
-# tmux plugins are vendored under pack/ with the legacy Vim plugins.
-run-shell ~/.vim/pack/tmux-resurrect/resurrect.tmux
-run-shell ~/.vim/pack/tmux-continuum/continuum.tmux
+# Keep the custom C-c behavior explicit to avoid generated command-prompt errors.
+bind C-c command-prompt -p new-session "new-session -c '#{pane_current_path}' -s '%%'" #!important
+
+# Resolve tmux plugins from the symlinked dotfiles repo, not stale ~/.vim/pack.
+run-shell 'conf="${TMUX_CONF_LOCAL:-$HOME/.tmux.conf.local}"; target="$(readlink "$conf" 2>/dev/null || true)"; if [ -n "$target" ]; then case "$target" in /*) conf="$target" ;; *) conf="$(dirname "$conf")/$target" ;; esac; fi; repo_dir="$(dirname "$(dirname "$conf")")"; for plugin in "$repo_dir/pack/tmux-resurrect/resurrect.tmux" "$repo_dir/pack/tmux-continuum/continuum.tmux"; do [ -x "$plugin" ] && "$plugin"; done'
 
 # -- tpm -----------------------------------------------------------------------
 
