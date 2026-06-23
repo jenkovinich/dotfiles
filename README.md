@@ -37,6 +37,8 @@ It provides:
 - prefix history search with Up and Down
 - tab-cycled completion through Readline
 - bash-completion integration when the package is installed
+- `~/.local/bin` on `PATH` without duplicate entries
+- idempotent `ssh-agent` startup for existing `id_ed25519` and `id_rsa` keys
 
 ### Vim
 
@@ -57,6 +59,7 @@ It provides:
 - quickfix-based file listing through `:ProjectFiles`
 - ripgrep search through `:ProjectGrep` when `rg` is installed
 - built-in diagnostics
+- git signs, hunk actions, and branch-aware statusline
 - Mason-managed LSP servers for Python, Markdown, and Robot Framework
 - Obsidian-style Markdown support through markdown-oxide
 - Treesitter parser management and highlighting through nvim-treesitter
@@ -87,6 +90,7 @@ Neovim plugins:
 - `nvim-lspconfig`
 - `nvim-treesitter`
 - `snacks.nvim`
+- `gitsigns.nvim`
 
 Treesitter parser installation requires the `tree-sitter` CLI on `PATH`. If it
 is missing, the plugin still installs but parser installation is skipped.
@@ -94,8 +98,11 @@ is missing, the plugin still installs but parser installation is skipped.
 Neovim uses `,` as its leader key. Current custom Neovim key bindings:
 
 - `<C-p>` opens the Snacks smart picker for fuzzy file finding
-
-Future Neovim improvements may include a statusline and git signs.
+- `gd`, `gD`, `gi`, and `gr` navigate LSP definitions, declarations, implementations, and references
+- `K`, `<leader>rn`, and `<leader>ca` show hover, rename symbols, and run code actions
+- `[d`, `]d`, `<leader>e`, and `<leader>q` navigate and list diagnostics
+- `<leader>f` and `:Format` format the current buffer with an attached LSP formatter
+- `]h`, `[h`, and `<leader>h*` navigate and operate on git hunks through gitsigns
 
 ### Vim And Neovim Plugins
 
@@ -114,6 +121,9 @@ The following plugins should be installed.
 - [vim-commentary](https://tpope.io/vim/commentary.git): allows simpler code commenting
 
 ### TMUX Plugins
+
+tmux uses mouse mode, vi-style copy mode, a 50,000-line scrollback history, and
+session restore through the vendored plugins under `pack/`.
 
 - [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect.git): resurrects tmux sessions
 - [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum.git): continuously saves tmux sessions and restores them when a new tmux server starts
