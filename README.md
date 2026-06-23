@@ -37,11 +37,18 @@ Health check:
 ./install/health.bash
 ```
 
-Note that the tmux configurations won't be updated until all the sessions are
-closed.
+The setup script links by default:
 
-Use `tmux ls` to determine which sessions are open, and use `tmux a -t [SESSION
-NUMBER/NAME]` to go into that session.
+- `home/.bash_profile` to `~/.bash_profile`
+- `home/.bashrc` to `~/.bashrc`
+- `home/.inputrc` to `~/.inputrc`
+- `config/nvim` to `~/.config/nvim`
+- `tmux/oh-my-tmux/.tmux.conf` to `~/.tmux.conf`
+- `tmux/.tmux.conf.local` to `~/.tmux.conf.local`
+
+If an existing target path is a real directory or file, the setup script skips it
+rather than overwriting it. Move the existing path aside if you want dotfiles to
+own it.
 
 ### Bash
 
@@ -61,6 +68,20 @@ It provides:
 The classic Vim config lives in `home/.vimrc` and remains available as a fallback.
 It is not linked by default; run `./install/setup.bash --install-vim` if you want setup
 to manage `~/.vimrc`, `~/.vim/pack`, and the Vim-only plugin dependencies.
+
+The classic Vim plugins are vendored as submodules under `vim/pack`:
+
+- [ctrlp](https://github.com/ctrlpvim/ctrlp.vim): full path fuzzy file finder
+- [lightline](https://github.com/itchyny/lightline.vim): nicer looking status bar
+- [nerdtree](https://github.com/preservim/nerdtree): show file structure in a tree beside a page
+- [papercolor-theme](https://github.com/NLKNguyen/papercolor-theme): pretty color theme
+- [python-syntax](https://github.com/vim-python/python-syntax): python syntax highlighting
+- [robotframework-vim](https://github.com/mfukar/robotframework-vim): robot syntax highlighting and filetype recognition
+- [taglist.vim](https://github.com/yegappan/taglist): show overview of structure of code files
+- [vim-gitbranch](https://github.com/itchyny/vim-gitbranch): show the git branch in lightline status bar
+- [vim-prettier](https://github.com/prettier/vim-prettier): auto formatter for js, ts, css, json, markdown
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter): shows the git changes in the column
+- [vim-commentary](https://tpope.io/vim/commentary.git): allows simpler code commenting
 
 ### Neovim
 
@@ -84,25 +105,6 @@ It provides:
 - Snacks.nvim utilities for fuzzy finding, large files, quick file loading, input, and notifications
 - lazy.nvim plugin management with specs under `config/nvim/lua/plugins`
 
-The setup script links by default:
-
-- `home/.bash_profile` to `~/.bash_profile`
-- `home/.bashrc` to `~/.bashrc`
-- `home/.inputrc` to `~/.inputrc`
-- `config/nvim` to `~/.config/nvim`
-- `tmux/oh-my-tmux/.tmux.conf` to `~/.tmux.conf`
-- `tmux/.tmux.conf.local` to `~/.tmux.conf.local`
-
-Classic Vim is kept as an optional fallback. Run `./install/setup.bash --install-vim`
-if you want setup to link:
-
-- `home/.vimrc` to `~/.vimrc`
-- `vim/pack` to `~/.vim/pack`
-
-If an existing target path is a real directory or file, the setup script skips it
-rather than overwriting it. Move the existing path aside if you want dotfiles to
-own it.
-
 Mason-managed language servers:
 
 - Python: `basedpyright` and `ruff`
@@ -119,41 +121,49 @@ Neovim plugins:
 - `snacks.nvim`
 - `gitsigns.nvim`
 
+Neovim commands:
+
+- `:Explore`: open the built-in file explorer
+- `:ProjectFiles`: open project files in the quickfix list
+- `:ProjectGrep`: search project text with ripgrep and open matches in quickfix
+- `:Format`: format the current buffer with an attached LSP formatter
+
 Treesitter parser installation requires the `tree-sitter` CLI on `PATH`. If it
 is missing, the plugin still installs but parser installation is skipped.
 
 Neovim uses `,` as its leader key. Current custom Neovim key bindings:
 
-- `<C-p>` opens the Snacks smart picker for fuzzy file finding
-- `gd`, `gD`, `gi`, and `gr` navigate LSP definitions, declarations, implementations, and references
-- `K`, `<leader>rn`, and `<leader>ca` show hover, rename symbols, and run code actions
-- `[d`, `]d`, `<leader>e`, and `<leader>q` navigate and list diagnostics
-- `<leader>f` and `:Format` format the current buffer with an attached LSP formatter
-- `]h`, `[h`, and `<leader>h*` navigate and operate on git hunks through gitsigns
+- `<C-p>`: open the Snacks smart picker for fuzzy file finding
+- `gd`: go to LSP definition
+- `gD`: go to LSP declaration
+- `gi`: go to LSP implementation
+- `gr`: list LSP references
+- `K`: show LSP hover
+- `<leader>rn`: rename symbol
+- `<leader>ca`: run code action in normal or visual mode
+- `[d`: jump to the previous diagnostic
+- `]d`: jump to the next diagnostic
+- `<leader>e`: show diagnostic details
+- `<leader>q`: send diagnostics to the location list
+- `<leader>f`: format the current buffer through `:Format`
+- `]h`: jump to the next git hunk
+- `[h`: jump to the previous git hunk
+- `<leader>hs`: stage the current git hunk, or the visual selection
+- `<leader>hr`: reset the current git hunk, or the visual selection
+- `<leader>hS`: stage the current buffer
+- `<leader>hR`: reset the current buffer
+- `<leader>hu`: undo the last staged hunk
+- `<leader>hp`: preview the current git hunk
+- `<leader>hb`: show blame for the current line
 
-### Vim And Neovim Plugins
+### Tmux
 
-Classic Vim plugins are vendored as submodules under `vim/pack`. Neovim plugins
-are managed by lazy.nvim from `config/nvim`.
-
-The following classic Vim plugins should be installed.
-
-- [ctrlp](https://github.com/ctrlpvim/ctrlp.vim): full path fuzzy file finder
-- [lightline](https://github.com/itchyny/lightline.vim): nicer looking status bar
-- [nerdtree](https://github.com/preservim/nerdtree): show file structure in a tree beside a page
-- [papercolor-theme](https://github.com/NLKNguyen/papercolor-theme): pretty color theme
-- [python-syntax](https://github.com/vim-python/python-syntax): python syntax highlighting
-- [robotframework-vim](https://github.com/mfukar/robotframework-vim): robot syntax highlighting and filetype recognition
-- [taglist.vim](https://github.com/yegappan/taglist): show overview of structure of code files
-- [vim-gitbranch](https://github.com/itchyny/vim-gitbranch): show the git branch in lightline status bar
-- [vim-prettier](https://github.com/prettier/vim-prettier): auto formatter for js, ts, css, json, markdown
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter): shows the git changes in the column
-- [vim-commentary](https://tpope.io/vim/commentary.git): allows simpler code commenting
-
-### TMUX Plugins
-
-tmux uses mouse mode, vi-style copy mode, a 50,000-line scrollback history, and
+Tmux uses mouse mode, vi-style copy mode, a 50,000-line scrollback history, and
 session restore through the vendored plugins under `tmux/plugins/`.
+
+The tmux configuration will not be updated in existing sessions until all tmux
+sessions are closed. Use `tmux ls` to determine which sessions are open, and use
+`tmux a -t [SESSION NUMBER/NAME]` to attach to one.
 
 - [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect.git): resurrects tmux sessions
 - [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum.git): continuously saves tmux sessions and restores them when a new tmux server starts
