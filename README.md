@@ -9,16 +9,33 @@ git clone --recursive <repo-url> dotfiles
 cd dotfiles
 ```
 
+## Repository Layout
+
+- `home/`: dotfiles linked into `$HOME`
+- `config/nvim/`: Neovim Lua config linked to `~/.config/nvim`
+- `vim/pack/`: classic Vim package submodules linked to `~/.vim/pack`
+- `tmux/oh-my-tmux/`: vendored Oh My Tmux base config
+- `tmux/plugins/`: tmux plugin submodules
+- `install/`: installer and health-check scripts
+
 ## Install Dotfiles
 
 ```
 ./setup.bash
 ```
 
+The root `setup.bash` is a compatibility wrapper around `install/setup.bash`.
+
 Optional shell tool installs:
 
 ```
 ./setup.bash --install-bash-completion
+```
+
+Health check:
+
+```
+./install/health.bash
 ```
 
 Note that the tmux configurations won't be updated until all the sessions are
@@ -29,7 +46,7 @@ NUMBER/NAME]` to go into that session.
 
 ### Bash
 
-The Bash config lives in `.bashrc`, and Readline settings live in `.inputrc`.
+The Bash config lives in `home/.bashrc`, and Readline settings live in `home/.inputrc`.
 
 It provides:
 
@@ -42,11 +59,11 @@ It provides:
 
 ### Vim
 
-The classic Vim config lives in `.vimrc` and remains available as a fallback.
+The classic Vim config lives in `home/.vimrc` and remains available as a fallback.
 
 ### Neovim
 
-The Neovim config lives in `.config/nvim` and is written in Lua from scratch. It
+The Neovim config lives in `config/nvim` and is written in Lua from scratch. It
 uses lazy.nvim as the plugin manager and does not depend on the legacy Vim
 package submodules.
 
@@ -64,13 +81,18 @@ It provides:
 - Obsidian-style Markdown support through markdown-oxide
 - Treesitter parser management and highlighting through nvim-treesitter
 - Snacks.nvim utilities for fuzzy finding, large files, quick file loading, input, and notifications
-- lazy.nvim plugin management with specs under `.config/nvim/lua/plugins`
+- lazy.nvim plugin management with specs under `config/nvim/lua/plugins`
 
 The setup script links:
 
-- `.config/nvim` to `~/.config/nvim`
-- `.vimrc` to `~/.vimrc`
-- `pack` to `~/.vim/pack`
+- `home/.bash_profile` to `~/.bash_profile`
+- `home/.bashrc` to `~/.bashrc`
+- `home/.inputrc` to `~/.inputrc`
+- `home/.vimrc` to `~/.vimrc`
+- `config/nvim` to `~/.config/nvim`
+- `vim/pack` to `~/.vim/pack`
+- `tmux/oh-my-tmux/.tmux.conf` to `~/.tmux.conf`
+- `tmux/.tmux.conf.local` to `~/.tmux.conf.local`
 
 If an existing target path is a real directory or file, the setup script skips it
 rather than overwriting it. Move the existing path aside if you want dotfiles to
@@ -106,7 +128,10 @@ Neovim uses `,` as its leader key. Current custom Neovim key bindings:
 
 ### Vim And Neovim Plugins
 
-The following plugins should be installed.
+Classic Vim plugins are vendored as submodules under `vim/pack`. Neovim plugins
+are managed by lazy.nvim from `config/nvim`.
+
+The following classic Vim plugins should be installed.
 
 - [ctrlp](https://github.com/ctrlpvim/ctrlp.vim): full path fuzzy file finder
 - [lightline](https://github.com/itchyny/lightline.vim): nicer looking status bar
@@ -123,7 +148,7 @@ The following plugins should be installed.
 ### TMUX Plugins
 
 tmux uses mouse mode, vi-style copy mode, a 50,000-line scrollback history, and
-session restore through the vendored plugins under `pack/`.
+session restore through the vendored plugins under `tmux/plugins/`.
 
 - [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect.git): resurrects tmux sessions
 - [tmux-continuum](https://github.com/tmux-plugins/tmux-continuum.git): continuously saves tmux sessions and restores them when a new tmux server starts
