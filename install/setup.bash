@@ -16,7 +16,7 @@ for arg in "$@"; do
             ;;
         -h|--help)
             echo "Usage: $0 [--install] [--install-vim]"
-            echo "  --install      Install git, tig, tree, bash-completion, python-is-python3, and Neovim."
+            echo "  --install      Install git, tig, tree, tmux, bash-completion, python-is-python3, and Neovim."
             echo "  --install-vim  Link classic Vim config and install Vim-only dependencies."
             exit 0
             ;;
@@ -30,6 +30,11 @@ done
 link_path() {
     local source_path="$1"
     local target_path="$2"
+
+    if [ ! -e "$source_path" ]; then
+        echo "Missing source path: $source_path" >&2
+        return 1
+    fi
 
     if [ -e "$target_path" ] && [ ! -L "$target_path" ]; then
         echo "Skipping $target_path; it exists and is not a symlink"
@@ -49,7 +54,7 @@ require_apt_get() {
 install_setup_tools() {
     require_apt_get
     sudo apt-get update
-    sudo apt-get install git tig tree bash-completion curl python-is-python3 -y
+    sudo apt-get install git tig tree tmux bash-completion curl python-is-python3 -y
     install_neovim_from_tarball
 }
 
