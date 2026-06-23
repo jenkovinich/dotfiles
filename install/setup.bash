@@ -16,7 +16,7 @@ for arg in "$@"; do
             ;;
         -h|--help)
             echo "Usage: $0 [--install] [--install-vim]"
-            echo "  --install      Install git, tig, tree, tmux, bash-completion, python-is-python3, and Neovim."
+            echo "  --install      Install git, tig, tree, tmux, ripgrep, bash-completion, python-is-python3, and Neovim."
             echo "  --install-vim  Link classic Vim config and install Vim-only dependencies."
             exit 0
             ;;
@@ -54,7 +54,7 @@ require_apt_get() {
 install_setup_tools() {
     require_apt_get
     sudo apt-get update
-    sudo apt-get install git tig tree tmux bash-completion curl python-is-python3 -y
+    sudo apt-get install git tig tree tmux ripgrep bash-completion curl python-is-python3 -y
     install_neovim_from_tarball
 }
 

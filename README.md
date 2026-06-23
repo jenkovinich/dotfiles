@@ -27,7 +27,7 @@ cd dotfiles
 Optional installs:
 
 ```
-./install/setup.bash --install      # install git, tig, tree, tmux, bash-completion, python-is-python3, and Neovim
+./install/setup.bash --install      # install git, tig, tree, tmux, ripgrep, bash-completion, python-is-python3, and Neovim
 ./install/setup.bash --install-vim  # link classic Vim and install Vim-only dependencies
 ```
 
