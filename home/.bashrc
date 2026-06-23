@@ -135,7 +135,19 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+export EDITOR="${EDITOR:-nvim}"
 export GIT_EDITOR=nvim
+export MANPAGER='nvim +Man!'
+export DIFFPROG="$EDITOR -d"
+
+# Colorize man pages viewed through less.
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;36m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;44;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;32m'
 
 path_append() {
     case ":$PATH:" in

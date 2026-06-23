@@ -74,6 +74,8 @@ return {
       require("nvim-treesitter").setup(opts)
 
       vim.treesitter.language.register("bash", "sh")
+      vim.treesitter.language.register("git_config", "gitconfig")
+      vim.treesitter.language.register("ssh_config", "sshconfig")
       vim.treesitter.language.register("tsx", "typescriptreact")
 
       vim.api.nvim_create_autocmd("FileType", {
