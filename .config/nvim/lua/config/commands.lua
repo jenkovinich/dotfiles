@@ -94,7 +94,29 @@ function M.toggle_comment()
   end
 end
 
+local function client_supports_formatting(client, bufnr)
+  if client.supports_method then
+    return client:supports_method("textDocument/formatting", bufnr)
+  end
+  return client.server_capabilities and client.server_capabilities.documentFormattingProvider
+end
+
+function M.format()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+  for _, client in ipairs(clients) do
+    if client_supports_formatting(client, bufnr) then
+      vim.lsp.buf.format({ bufnr = bufnr, async = false })
+      return
+    end
+  end
+
+  vim.notify("No LSP formatter attached to this buffer", vim.log.levels.WARN)
+end
+
 vim.api.nvim_create_user_command("ProjectFiles", M.files, {})
 vim.api.nvim_create_user_command("ProjectGrep", M.grep, {})
+vim.api.nvim_create_user_command("Format", M.format, {})
 
 return M
