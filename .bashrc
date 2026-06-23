@@ -136,3 +136,64 @@ if ! shopt -oq posix; then
   fi
 fi
 export GIT_EDITOR=nvim
+
+path_append() {
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="${PATH:+$PATH:}$1" ;;
+    esac
+}
+
+path_append "$HOME/.local/bin"
+export PATH
+
+ssh_agent_is_available() {
+    [ -n "${SSH_AUTH_SOCK:-}" ] || return 1
+
+    ssh-add -l >/dev/null 2>&1
+    local ssh_add_status=$?
+    [ "$ssh_add_status" -eq 0 ] || [ "$ssh_add_status" -eq 1 ]
+}
+
+ssh_key_is_loaded() {
+    local key="$1"
+    local fingerprint
+
+    command -v ssh-keygen >/dev/null 2>&1 || return 1
+    fingerprint="$(ssh-keygen -lf "$key" 2>/dev/null | awk '{print $2}')"
+    [ -n "$fingerprint" ] || return 1
+
+    ssh-add -l 2>/dev/null | awk '{print $2}' | grep -Fxq "$fingerprint"
+}
+
+ssh_add_default_keys() {
+    local key
+
+    for key in "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_rsa"; do
+        [ -r "$key" ] || continue
+        ssh_key_is_loaded "$key" && continue
+        ssh-add "$key" >/dev/null 2>&1
+    done
+}
+
+setup_ssh_agent() {
+    local agent_file="$HOME/.ssh/ssh-agent"
+
+    command -v ssh-agent >/dev/null 2>&1 || return
+    command -v ssh-add >/dev/null 2>&1 || return
+    [ -d "$HOME/.ssh" ] || return
+
+    if ! ssh_agent_is_available && [ -r "$agent_file" ]; then
+        . "$agent_file" >/dev/null 2>&1 || true
+    fi
+
+    if ! ssh_agent_is_available; then
+        ssh-agent -s > "$agent_file"
+        chmod 600 "$agent_file"
+        . "$agent_file" >/dev/null 2>&1
+    fi
+
+    ssh_agent_is_available && ssh_add_default_keys
+}
+
+setup_ssh_agent
