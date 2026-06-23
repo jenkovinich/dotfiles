@@ -405,7 +405,7 @@ set -g @continuum-restore 'on'
 bind C-c command-prompt -p new-session "new-session -c '#{pane_current_path}' -s '%%'" #!important
 
 # Resolve tmux plugins from the symlinked dotfiles repo, not stale ~/.vim/pack.
-run-shell 'conf="${TMUX_CONF_LOCAL:-$HOME/.tmux.conf.local}"; target="$(readlink "$conf" 2>/dev/null || true)"; if [ -n "$target" ]; then case "$target" in /*) conf="$target" ;; *) conf="$(dirname "$conf")/$target" ;; esac; fi; repo_dir="$(dirname "$(dirname "$conf")")"; for plugin in "$repo_dir/pack/tmux-resurrect/resurrect.tmux" "$repo_dir/pack/tmux-continuum/continuum.tmux"; do [ -x "$plugin" ] && "$plugin"; done'
+run-shell 'conf="${TMUX_CONF_LOCAL:-$HOME/.tmux.conf.local}"; target="$(readlink "$conf" 2>/dev/null || true)"; if [ -n "$target" ]; then case "$target" in /*) conf="$target" ;; *) conf="$(dirname "$conf")/$target" ;; esac; fi; repo_dir="$(dirname "$(dirname "$conf")")"; for plugin in "$repo_dir/tmux/plugins/tmux-resurrect/resurrect.tmux" "$repo_dir/tmux/plugins/tmux-continuum/continuum.tmux"; do [ -x "$plugin" ] && "$plugin"; done'
 
 # -- tpm -----------------------------------------------------------------------
 
