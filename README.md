@@ -95,6 +95,7 @@ It provides:
 - indentation and comment rules for common filetypes
 - Robot Framework filetype detection for `*.robot`
 - built-in file explorer through `:Explore`
+- editable file browsing through oil.nvim
 - quickfix-based file listing through `:ProjectFiles`
 - ripgrep search through `:ProjectGrep` when `rg` is installed
 - built-in diagnostics
@@ -120,6 +121,7 @@ Neovim plugins:
 - `nvim-treesitter`
 - `snacks.nvim`
 - `gitsigns.nvim`
+- `oil.nvim`
 
 Neovim commands:
 
@@ -134,6 +136,7 @@ is missing, the plugin still installs but parser installation is skipped.
 Neovim uses `,` as its leader key. Current custom Neovim key bindings:
 
 - `<C-p>`: open the Snacks smart picker for fuzzy file finding
+- `-`: open the parent directory with oil.nvim
 - `gd`: go to LSP definition
 - `gD`: go to LSP declaration
 - `gi`: go to LSP implementation
